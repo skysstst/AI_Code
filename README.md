@@ -2,7 +2,7 @@
 
 这是我作为编程初学者用来存放练习代码的仓库，主要记录 Python 学习过程和阶段性的练手项目。
 
-🌐 **个人主页入口**: [点击进入预览](https://skysstst.github.io/Python/)
+🌐 **个人主页入口**: [点击进入预览](https://github.com/skysstst/Python/tree/main/top250_collector)
 
 ---
 
