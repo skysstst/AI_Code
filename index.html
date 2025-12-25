@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LH 的代码实验室</title>
+    <style>
+        /* --- 全局样式：暗黑极客风 --- */
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8; /* 亮蓝色 */
+            --accent-hover: #0ea5e9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* --- 头部区域 --- */
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 70%);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* --- 主要内容区 --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* --- 标题栏 --- */
+        .section-title {
+            border-left: 5px solid var(--accent);
+            padding-left: 15px;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            margin-top: 50px;
+        }
+
+        /* --- 项目卡片网格 --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* --- 单个卡片 --- */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent);
+        }
+
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--accent);
+            font-size: 1.4rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        /* 底部按钮区 */
+        .card-footer {
+            padding: 20px 25px;
+            border-top: 1px solid #334155;
+            background: rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: flex-end; /* 按钮靠右 */
+            gap: 10px; /* 按钮之间的间距 */
+            align-items: center;
+        }
+
+        /* 主按钮样式 */
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background-color: var(--accent);
+            color: #0f172a;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            border: 2px solid var(--accent);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+        }
+
+        /* 次要按钮（镂空风格） */
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent-hover);
+        }
+
+        /* --- 学习记录列表 --- */
+        .timeline {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline li {
+            background: var(--card-bg);
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .timeline li:hover {
+            border-left-color: var(--accent);
+        }
+
+        .date {
+            font-size: 0.85rem;
+            color: #64748b;
+            min-width: 100px;
+            text-align: right;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 0;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .timeline li { flex-direction: column; align-items: flex-start; }
+            .date { margin-top: 5px; text-align: left; }
+            .card-footer { flex-direction: column; }
+            .btn { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Hello, I'm <span class="highlight">LH</span>.</h1>
+        <p class="subtitle">
+            程序开发业余爱好者 | Python 学习者 | 正在构建我的数字世界
+        </p>
+    </header>
+
+    <div class="container">
+        
+        <h2 class="section-title">🚀 我的项目 (Projects)</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <div class="card-content">
+                    <h3>🎬 豆瓣 Top250 光影画廊</h3>
+                    <p>
+                        这是我的第一个全栈实践项目。
+                        <br><br>
+                        • <b>Python</b>：编写爬虫抓取数据和图片。<br>
+                        • <b>HTML/CSS</b>：生成响应式海报墙。<br>
+                        • <b>GitHub Actions</b>：托管与展示。
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a href="https://github.com/skysstst/Python" class="btn btn-outline" target="_blank">💻 查看代码</a>
+                    <a href="./top250_collector/movie_gallery.html" class="btn" target="_blank">👁️ 预览效果</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>🗺️ 数据地图染色工具 (In Progress)</h3>
+                    <p>
+                        计划复刻并重构以前制作的数据可视化工具。
+                        <br><br>
+                        • <b>功能</b>：读取 Excel 表格中的地理数据。<br>
+                        • <b>展示</b>：自动根据数值大小对地图区域进行热力染色。<br>
+                        • <b>目标</b>：将旧代码迁移至 Web 端，方便在线使用。
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <span style="color:#64748b; font-size:0.9rem;">🚧 正在代码迁移中...</span>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="section-title">📝 学习里程碑 (Timeline)</h2>
+        <ul class="timeline">
+            <li>
+                <span>成功部署个人主页，建立了 GitHub 学习基地。</span>
+                <span class="date">2025-12-25</span>
+            </li>
+            <li>
+                <span>完成豆瓣 Top250 爬虫及可视化项目（Gemini）。</span>
+                <span class="date">2025-12-24</span>
+            </li>
+             <li>
+                <span>完成数据地图染色工具，第一次有真正意义的项目完成，并且帮助到了别人。</span>
+                <span class="date">2022-11-01</span>
+            </li>
+            <li>
+                <span>开始接触 Python（但是半途而废了）。</span>
+                <span class="date">2019-06-16</span>
+            </li>
+        </ul>
+
+    </div>
+
+    <footer>
+        <p>© 2025 LH. Built with simple HTML & CSS.</p>
+    </footer>
+
+</body>
+</html>
